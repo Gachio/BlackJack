@@ -67,3 +67,41 @@ new_card = new_deck.deal_one()
 print(new_card)
 last_card = new_deck.all_cards[-1]
 print(last_card)
+
+
+'''
+The Player Class
+
+- This class will be used to hold a player's current list of cards.
+- A player should be able to add or remove cards from thier "hand" (list of Card Objects).
+- I will want the player to be able to add a single card or multiple cards to thier list, so I also explore how to do this in one method call.
+- Translate a Deck/Hand of cards with a top and bottom, to a Python list.
+
+* Player Class will have a self.all_cards list
+'''
+
+class Player: # creates the Player class
+
+    def __init__(self,name): # distinguishes a player from one another
+        self.name = name
+        self.all_cards = []
+
+    def remove_one_card(self): # removes a card from list of cards
+        return self.all_cards.pop(0)
+
+    def add_cards(self,new_cards): # new_cards can be a single card object of a list of card object
+        if type(new_cards) == type([]):
+            # List of multiple Card objects
+            self.all_cards.extend(new_cards)
+        else:
+            # For a single card object
+            self.all_cards.append(new_cards)
+
+    def __str__(self): # a string method that prints out a player
+        return f'Player {self.name} has {len(self.all_cards)} cards.'
+
+new_player = Player("Gachio")
+print(new_player)
+new_player.add_cards(new_card)
+print(new_player)
+print(new_player.all_cards[0])
