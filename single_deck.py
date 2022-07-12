@@ -105,3 +105,40 @@ print(new_player)
 new_player.add_cards(new_card)
 print(new_player)
 print(new_player.all_cards[0])
+
+
+'''
+The Game Logic
+
+- Creates two instances of the Player (Player One, Player Two)
+- Creates an instance of a new deck, shuffle the deck, and split the deck
+'''
+
+# while game_on
+
+round_num = 0 # a counter
+
+while game_on:
+
+    round_num += 1
+    print(f"Round {round_num}")
+
+    if len(player_one.all_cards) == 0:
+        print('Player One is out of Cards! Player Two Wins!')
+        game_on = False
+        break
+
+    if len(player_two.all_cards) == 0:
+        print('Player Two is out of cards! Player One Wins!')
+        game_on = False
+        break
+
+    # START A NEW ROUND
+    player_one_cards = []
+    player_one_cards.append(player_one.remove_one_card())
+
+    player_two_cards = []
+    player_two_cards.append(player_two.remove_one_card())
+
+    
+    # while at_war
