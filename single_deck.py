@@ -123,6 +123,7 @@ while game_on:
     round_num += 1
     print(f"Round {round_num}")
 
+    # checks to see if players have cards to play
     if len(player_one.all_cards) == 0:
         print('Player One is out of Cards! Player Two Wins!')
         game_on = False
@@ -141,4 +142,23 @@ while game_on:
     player_two_cards.append(player_two.remove_one_card())
 
     
-    # while at_war
+# while at_war
+
+
+'''
+
+Checks the player's cards against each other.
+Having three situations here:
+- Player One > Player Two
+- Player One < Player Two
+- Player One == Player Two
+
+The if/ elif/ else within a while loop assumes that a "war" has happened.
+
+at_war = False if the players resolve the match-up on the first drawn card, otherwise add cards to the current cards on the table.
+
+If there is a tie, each player needs to draw 5 additional cards.
+A player loses if they do not have at least 5 cards to play the war.
+
+This logic simplys an edition to fit wanted any rule structure.
+'''
